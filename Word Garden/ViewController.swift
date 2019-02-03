@@ -57,7 +57,6 @@ class ViewController: UIViewController {
             WrongGuessesRemaining -= 1
             flowerImageView.image = UIImage(named: "flower\(WrongGuessesRemaining)")
         }
-        
         let revealedWord = userGuessLabel.text!
         if WrongGuessesRemaining == 0{
             playAgainButton.isHidden = false
@@ -68,12 +67,11 @@ class ViewController: UIViewController {
             playAgainButton.isHidden = false
             guessedLetterField.isEnabled = false
             guessLetterButton.isEnabled = false
-            guessCountLabel.text = "You've got it! It took you \(guessCount) guesses to guess the word!"
+            guessCountLabel.text = "You've got it! It took you \(guessCount) Guesses to Guess the word!"
         } else {
-            let guess = (guessCount == 1 ? "guess" : "guesses")
-            guessCountLabel.text = "You've made \(guessCount) \(guess)"
+            let guess = (guessCount == 1 ? "Guess" : "Guesses")
+            guessCountLabel.text = "You've Nade \(guessCount) \(guess)"
         }
-        
     }
     
 
@@ -84,16 +82,17 @@ class ViewController: UIViewController {
         }else{
             guessLetterButton.isEnabled = false
         }
-        
     }
+    
     @IBAction func doneKeyPressed(_ sender: UITextField) {
         updateUIAfterGuess()
     }
+    
     @IBAction func guessedButtonPressed(_ sender: UIButton) {
         guessALetter()
         updateUIAfterGuess()
-        
     }
+    
     @IBAction func playAgainButtonPressed(_ sender: UIButton) {
         playAgainButton.isHidden = true
         guessedLetterField.isEnabled = true
@@ -102,7 +101,7 @@ class ViewController: UIViewController {
         WrongGuessesRemaining = maxNumberOfWrongGuesses
         lettersGuessed = ""
         formatUserGuessLabel()
-        guessCountLabel.text = "You've made 0 guesses"
+        guessCountLabel.text = "You've Made 0 Guesses"
         guessCount = 0
         
     }
